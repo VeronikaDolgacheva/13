@@ -1,0 +1,108 @@
+public string NameBook { get { return nameBook; } }
+    public string Autor { get { return autor; } }
+    public int Year { get { return year; } set { year = value; } }
+    public string Status { get { return status; } set { status = value; } }
+}
+public class Book : LibraryIter
+{
+    private int pages, isbn;
+    public int Pages { get { return pages; } }
+    public int ISBN { get { return isbn; } }
+    public void Read(int Pages, int ISBN)
+    {
+        Console.WriteLine($"Книга с МСКН {ISBN} имеет {Pages} страниц");
+    }
+}
+public class Magazen : LibraryIter
+{
+    private int relis;
+    private string timeWork;
+    public int Relis { get { return relis; } }
+    public string TimeWork { get { return timeWork; } }
+    public void Gazeta(int Relis, string TimeWork)
+    {
+        Console.WriteLine($"Газета с номером выпуска {Relis} выпускаеться {TimeWork}");
+    }
+}
+public class DVD : LibraryIter
+{
+    private double duration, rating;
+    public double Duration { get { return duration; } set { duration = value; } }
+    public double Rating { get { return rating; } set { rating = value; } }
+    public void See(double Duration, double Rating)
+    {
+        Console.WriteLine($"Фильм продолжительностью: {Duration} имеет рейтинг: {Rating} ");
+    }
+}
+public class AudioBook : LibraryIter
+{
+    private double time;
+    private string dictor;
+    public double Time { get { return time; } set { time = value; } }
+    public string Dictor { get { return dictor; } set { dictor = value; } }
+    public void Lisen(double Time, string Dictor)
+    {
+        Console.WriteLine($"Эта аудиокнига имеет продолжительность {Time}, а озвучивала ее {Dictor}");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+       Book book = new Book();
+        book.Read(13, 7);
+        Magazen magazen = new Magazen();
+        magazen.Gazeta(3, "1 раз в месяц");
+        DVD dvd = new DVD();
+        dvd.See(1.35, 8.5);
+        AudioBook audio = new AudioBook();
+        audio.Lisen(1.55, "Овчинникова Дарья");
+    }
+}
+13.4 
+public class Course
+{
+    private string name, description, autor;
+    private int price;
+    public string Name { get { return name; } }
+    public string Description { get { return description; } }
+    public string Autor { get { return autor; } }
+    public int Price { get { return price; } }
+}
+public class Videccourse : Course
+{
+    private int count;
+    private double duration;
+    public int Count { get { return count; } }
+    public double Duration { get { return duration; } }
+    public void Vidio(int Count, double Duration)
+    {
+        Console.WriteLine($"В курсе всего {Count} видео продолжительностью {Duration} ");
+    }
+}
+public class TextCourso : Course
+{
+    private int chapter, text;
+    public int Chapter { get { return chapter; } }
+    public int Text { get { return text; } }
+    public void Fail(int Chapter, int Text)
+    {
+        Console.WriteLine($"В текстовом курсе {Chapter} глав общим объемом текста в {Text} мб");
+    }
+}
+public class TnteractiveCourse : Course
+{
+    private int exs, check_system;
+    public int Exs { get { return exs; } }
+    public int CheckSystem { get { return check_system; } }
+    public void Check(int Exs, int CheckSystem)
+    {
+        if (CheckSystem <= 0 || CheckSystem > 10)
+        {
+            Console.WriteLine("Вы не справелись с упражнениями");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"Вы справелись с {Exs} из 10. Молодец!");
+        }
