@@ -1,0 +1,104 @@
+13.1
+public class Employee
+{
+    private string name, position;
+    private int salary;
+    private DateTime date;
+
+    public string Name { get { return name; } }
+    public string Position { get { return position; } }
+    public int Salary { get { return salary; } }
+    public DateTime Date { get { return date; } set { date = value; } }
+}
+public class Maneger : Employee
+{
+    private int Team_size { get; set; }
+
+    public void Meeting(int Team_size)
+    {
+        Console.WriteLine($"Менеджер проводит собрание с {Team_size} сотрудниками");
+    }
+}
+public class Developer : Employee
+{
+    private string Language { get; set; }
+   
+    public void Write_code(string Language)
+    {
+        Console.WriteLine($"Программисты данной компании пишут на {Language} языке программирования");
+    }
+}
+public class Director : Employee
+{
+    private string Department { get; set; }
+   
+    public void Budget(string Department)
+    {
+        Console.WriteLine($"Директор утвердил бюджет отделю {Department}");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Maneger maneger = new Maneger( );
+        maneger.Meeting(10);
+        Developer developer = new Developer( );
+        developer.Write_code("C#");
+        Director director = new Director();
+        director.Budget("по продажам");
+    }
+}
+13.2
+public class BankAccount
+{
+     private int number;
+     private string name;
+     private double price;    
+         public int Number { get { return number; } set { number = value; } } 
+         public string Name{get { return name; } set { name = value; } }
+         public double Price { get { return price; } set { price = value; } }    
+}
+ public class ChekingAccount : BankAccount
+ {
+     private double Overdraft {  get; set; }
+    
+     public void Overdraft_facility(double Overdraft)
+     {
+         Console.WriteLine($"Ваш лимит овердрафта {Overdraft}");
+     }
+ }
+ public class SevingsAccount: BankAccount
+ {
+     private int Percent {  get; set; }
+     public void Interest_rate(int Percent)
+     {
+         Console.WriteLine($"Ваша процентная ставка состовляет {Percent}%");
+     }
+ }
+ public class CreditAccount : BankAccount
+ {
+     private double Credit {  get; set; }
+     private DateTime Data { get; set; }
+     public void Loan_repayment(double Credit, DateTime Data)
+     {
+         Console.WriteLine($"Ваш долг по кредиту состовляет {Credit}, Вы должны выплатить его до: {Data}");
+     }
+ }
+ class Program
+{
+    static void Main(string[] args)
+    {
+        ChekingAccount chekingAccount = new ChekingAccount();
+        chekingAccount.Overdraft_facility(1000);
+        SevingsAccount sevingsAccount = new SevingsAccount();
+        sevingsAccount.Interest_rate(12);
+        CreditAccount creditAccount = new CreditAccount();
+        creditAccount.Loan_repayment(15000, DateTime.Today);
+    }
+}
+13.3
+public class LibraryIter
+{
+    private string nameBook, autor, status;
+    private int year;
